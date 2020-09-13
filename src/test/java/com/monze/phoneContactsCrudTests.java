@@ -62,7 +62,7 @@ public class phoneContactsCrudTests {
     public void testContactNameSearch() throws SQLException {
         // When there are contacts
         String expectedContacts = "LEON";
-        String expectedContacts1 = "LEON";
+        String expectedContacts1 = "LEONx";
         String query1 = "SELECT * FROM tblphone WHERE  pname ='"+expectedContacts1+"'";
         when(connection.prepareStatement(query1)).thenReturn(preparedStatement);
        
