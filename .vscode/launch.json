@@ -1,0 +1,77 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - bookManager",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.contacts.bookManager",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - bookManager",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.animals.bookManager",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AnimalManager",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.animals.AnimalManager",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AnimalManager",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.AnimalManager",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.Main",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PostgreSqlRetrieveProperties<focusphone>",
+            "request": "launch",
+            "mainClass": "com.monze.PostgreSqlRetrieveProperties",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PostgreSqlTestingPurposes<focusphone>",
+            "request": "launch",
+            "mainClass": "com.monze.PostgreSqlTestingPurposes",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-App<focusphone>",
+            "request": "launch",
+            "mainClass": "com.monze.contactexcel.App",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-appMainLoad<focusphone>",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.appMainLoad",
+            "projectName": "focusphone"
+        }
+    ]
+}

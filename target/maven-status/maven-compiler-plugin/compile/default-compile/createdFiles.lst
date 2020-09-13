@@ -1,0 +1,12 @@
+com\monze\contactsql\crud\contactsDelete.class
+com\monze\contactsql\crud\contactsListing.class
+com\monze\contactsql\startupfiles\bookintializer.class
+com\monze\contactsql\crud\contactsSearch.class
+com\monze\contactsql\dbmgmt\contactsModel.class
+com\monze\contactsql\appMainLoad.class
+com\monze\contactsql\dbmgmt\contactsCreateTable.class
+com\monze\contactsql\crud\contactsUpdate.class
+com\monze\contactsql\crud\contactsShow.class
+com\monze\contactsql\crud\contactsInsert.class
+com\monze\contactsql\startupfiles\bookservices.class
+com\monze\contactsql\dbmgmt\contactsManual.class
