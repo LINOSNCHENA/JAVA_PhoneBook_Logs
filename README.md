@@ -56,6 +56,3 @@ Here are screen-shots from the MPC compututation results
 ![ Muntu App SMS # 2 ](https://github.com/LINOSNCHENA/Monitoring-Fuzzy-Logic-Controller/blob/master/uxDP/MPC/page%20(2).png)
 ![ Muntu App SMS # 3 ](https://github.com/LINOSNCHENA/Monitoring-Fuzzy-Logic-Controller/blob/master/uxDP/MPC/page%20(3).png)
 ![ Muntu App SMS # 4 ](https://github.com/LINOSNCHENA/Monitoring-Fuzzy-Logic-Controller/blob/master/uxDP/MPC/page%20(4).png)
-
-
-
