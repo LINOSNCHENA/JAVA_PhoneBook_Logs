@@ -20,8 +20,8 @@ echo %CLASSPATH%
 ## COMMANDS TO EXECUTE BUILD
 ==============================
 
-Update USERNAME for the database table/database
-Update PASSWORD for the database table/database in file in resources/database.properties
+Update USERNAME/PASSWORD for the database table\
+Database table/database is found in file located in resources/database.properties
 
 ```
 mvn clean install -X
@@ -32,10 +32,13 @@ mvn test
 
 ## COMMANDS TO RUN IN PROMPT
 ==============================
+
 java -cp target/focusphone-1.0-SNAPSHOT.jar com.monze.App
 
 ## SERVICEES AVAILABLE ON PHONE BOOK
 ======================================
+
+
 Available options to manipulate phonebook using console application.
 
   menu   - to lists all valid commands available
@@ -55,6 +58,7 @@ Available options to manipulate phonebook using console application.
 
 # PHONE BOOK - INTERFACE UX 
 =============================
+
 Here are screen-shots from the MPC compututation results
 
 ![ Muntu App SMS # 1 ](https://github.com/LINOSNCHENA/PhoneBookApp/blob/master/ux/page%20(1).png)

@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 public class contactsSearch {
   public static void findContact(String url, String user, String passwd) {
     Scanner scanner = new Scanner(System.in);
-    final int MAX_LENGTH = 15;
+    final int MAX_LENGTH = 20;
     int id = 0;
     //////////////////////// IDIDIDIDIDID
     System.out.print("Enter the CONTACT ID-NUMBER number: ");

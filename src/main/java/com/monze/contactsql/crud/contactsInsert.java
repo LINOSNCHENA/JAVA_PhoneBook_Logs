@@ -12,7 +12,7 @@ public class contactsInsert {
 
   public static void insertContact(String url, String user, String passwd) {
     Scanner scanner = new Scanner(System.in);
-    final int MAX_LENGTH = 15;
+    final int MAX_LENGTH = 20;
     int pnumber1 = 0;
     int pnumber2 = 0;
     String pname = "";
@@ -21,7 +21,7 @@ public class contactsInsert {
     System.out.print("Enter a name of the contact : ");
     scanner: while (scanner.hasNext()) {
       if (scanner.hasNextLine()) {
-        pname = scanner.nextLine();
+        pname = scanner.nextLine().trim();
         if (String.valueOf(pname).length() <= MAX_LENGTH) {
           break scanner;
         } else {

@@ -13,7 +13,7 @@ public class contactsUpdate {
   public static void updateContact(String url, String user, String passwd) {
     // ENTER the ID of CONTACT to be EDITED
     Scanner scanner = new Scanner(System.in);
-    final int MAX_LENGTH = 15;
+    final int MAX_LENGTH = 20;
     int id = 0;
     String pname = "";
     int pnumber1 = 0;

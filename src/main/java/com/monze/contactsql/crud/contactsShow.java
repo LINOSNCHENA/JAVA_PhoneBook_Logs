@@ -14,7 +14,7 @@ public class contactsShow {
 
   public static void showContact(String url, String user, String passwd) throws SQLException {
     Scanner scanner = new Scanner(System.in);
-    final int MAX_LENGTH = 15;
+    final int MAX_LENGTH = 20;
     String pname = "";
 
     //////////////////////////////////////////////// NAME

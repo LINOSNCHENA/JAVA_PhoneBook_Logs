@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - appRUN",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.appRUN",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - bookManager",
             "request": "launch",
             "mainClass": "com.monze.contactsql.contacts.bookManager",
