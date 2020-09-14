@@ -124,40 +124,7 @@ public class bookservices {
 
     }
 
-    public ResultSet findData( String pnameX) throws SQLException { // CRUD 5
-       // String pnameX
-    
-        System.out.println("\n =============== FIND START ============================\n");
-        String query1 = "SELECT * FROM " + TABLE_NAME + " WHERE  pname ='"+pnameX+"'";
-        PreparedStatement st = connection.prepareStatement(query1);
-        ResultSet rs = st.executeQuery();
-      //  System.out.println("\n Opened database successfully.\n Loading Data .......\n");
-        while (rs.next()) {
-            System.out.print(" id=");
-            System.out.print(rs.getInt(1));
-            System.out.print(" name=: ");
-            System.out.print(rs.getString(2));
-            System.out.print("mb= : ");
-            System.out.print(rs.getString(3));
-            System.out.print("off : ");
-            System.out.println(rs.getString(4));
-        }
-    //    System.out.println("\n =============== FIND DATA 2=============================\n");
-        return resultSet;
-
-    }
-    ///////////////////////////////////////////////////////////////////////////////////////////
-
-    public boolean hasRecords() throws SQLException {
-        resultSet = readData();
-        return resultSet.next();
-    }
-    public ResultSet testSerach() throws SQLException {
-        resultSet = showData("dd");
-        return resultSet;
-    }
-
-    public int numberOfContacts() throws SQLException { // CRUD 4
+   public int numberOfContacts() throws SQLException { // CRUD 4
         System.out.println("\n =============== COUNTER TOTAL ===================\n");
         String getQueryStatement = "SELECT COUNT(*) FROM " + TABLE_NAME;
         preparedStatement = connection.prepareStatement(getQueryStatement);
@@ -168,6 +135,41 @@ public class bookservices {
                   return resultSet.getInt(1);
         }
         return 0;
+    }
+
+    
+    public ResultSet findData( String pnameX) throws SQLException { // CRUD 5
+        // String pnameX
+     
+         System.out.println("\n =============== FIND START ============================\n");
+         String query1 = "SELECT * FROM " + TABLE_NAME + " WHERE  pname ='"+pnameX+"'";
+         PreparedStatement st = connection.prepareStatement(query1);
+         ResultSet rs = st.executeQuery();
+       //  System.out.println("\n Opened database successfully.\n Loading Data .......\n");
+         while (rs.next()) {
+             System.out.print(" id=");
+             System.out.print(rs.getInt(1));
+             System.out.print(" name=: ");
+             System.out.print(rs.getString(2));
+             System.out.print("mb= : ");
+             System.out.print(rs.getString(3));
+             System.out.print("off : ");
+             System.out.println(rs.getString(4));
+         }
+     //    System.out.println("\n =============== FIND DATA 2=============================\n");
+         return resultSet;
+ 
+     }
+     ///////////////////////////////////////////////////////////////////////////////////////////
+  
+
+       public boolean hasRecords() throws SQLException {
+        resultSet = readData();
+        return resultSet.next();
+    }
+    public ResultSet testSerach() throws SQLException {
+        resultSet = showData("dd");
+        return resultSet;
     }
     //////////////////////////////////////////////////////////////////////////////////////////
 
