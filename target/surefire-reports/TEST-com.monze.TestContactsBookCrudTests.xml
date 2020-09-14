@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.monze.TestContactsBookCrudTests" time="1.228" errors="0" skipped="0">
+<testsuite tests="3" failures="0" name="com.monze.TestContactsBookCrudTests" time="1.118" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.2+10"/>
@@ -63,5 +63,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.monze.TestContactsBookCrudTests" name="testNumberOfContacts" time="1.228"/>
+  <testcase classname="com.monze.TestContactsBookCrudTests" name="testSearchContactByWrongName" time="0.993"/>
+  <testcase classname="com.monze.TestContactsBookCrudTests" name="testNumberOfContacts" time="0.12"/>
+  <testcase classname="com.monze.TestContactsBookCrudTests" name="testSearchContactByCorrectName" time="0.005"/>
 </testsuite>
