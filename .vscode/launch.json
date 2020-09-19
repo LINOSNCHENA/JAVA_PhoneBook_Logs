@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - setUp",
+            "request": "launch",
+            "mainClass": "com.setUp",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MAIN",
+            "request": "launch",
+            "mainClass": "com.MAIN",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - appRUN",
+            "request": "launch",
+            "mainClass": "com.appRUN",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "com.Main",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Main",
+            "request": "launch",
+            "mainClass": "com.monze.contactsql.startdata.Main",
+            "projectName": "focusphone"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - appRUN",
             "request": "launch",
             "mainClass": "com.monze.contactsql.appRUN",

@@ -14,6 +14,7 @@
 echo %MAVEN_HOME%
 echo %M2_HOME%
 echo %CLASSPATH%
+echo %JAVA_HOME%
 
 ```
 
@@ -41,20 +42,35 @@ java -cp target/focusphone-1.0-SNAPSHOT.jar com.monze.App
 
 Available options to manipulate phonebook using console application.
 
-  menu   - to lists all valid commands available
-  format - to erase all your current contacts
-  help   - to display the menu for commands 
+"HELP   - to lists all valid commands available in this application "
 
-  delete - to erase a contact from the phone book
-  list   - to lists all saved contacts sorted by date of entry
-  add    - to saves a new contact entry into the phone book
-    
-  show   - to search for a contact by the contact name
-  find   - to search for a contact by the contact number
-  update - to edit the phone number of  existing contact
+"DELETE - to erase a contact from the phone book\n"
+"LIST   - to lists all saved contacts sorted by date of entry"
+"ADD    - to saves a new contact entry into the phone book" +
 
-  exit  - to end the console application
+"NAME   - to search for a contact by the contact name"
+"NUMBER   - to search for a contact by the contact number"
+"UPDATE - to edit the phone number of  existing contact"
+
+"RESET1   - Deletes all contacts records and restores factory defaults"
+"RESET2   - Deletes all logs datails & records and restores factory defaults"
+
+"ADMIN - to view past log data manipulations of contacts"
+"EXIT   - STOP using the Phone Book application console" +
+
+"--------------------------------------------------------------"
+
+" To continue, please enter an action command here >>>  ";
     
+
+# PHONE BOOK - C/C++ PROGRAMMING 
+=============================
+
+1. Task 1&2
+1. Task 3&4
+1. Task 5&6
+1. Task 7&8
+
 
 # PHONE BOOK - INTERFACE UX 
 =============================
