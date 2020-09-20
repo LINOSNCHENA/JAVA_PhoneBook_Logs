@@ -16,13 +16,14 @@ public class contactDaoImplemented implements contactsDao {
     final static Logger logger = Logger.getLogger(contactsDao.class);
 
     private final Connection connection = connFactory.getConnection(dbConfig.url, dbConfig.user1, dbConfig.passwd1);
-    private static final String INSERT_INTO_ITEMS = "INSERT INTO tblphone (pname, pnumber1,pnumber2) VALUES (?,?,?)";
-    private static final String FIND_ITEM_BY_ID = "SELECT * FROM tblphone WHERE id=? order by id";
-    private static final String FIND_ITEM_BY_NAME = "SELECT * FROM tblphone WHERE pname LIKE '%";
-    private static final String FIND_ALL_ITEMS = "SELECT * FROM tblphone order by id";
-    private static final String UPDATE_ITEM = "UPDATE tblphone SET pname=?, pnumber1=?,pnumber2=? WHERE id=?";
-    private static final String DELETE_ITEM = "DELETE FROM tblphone WHERE id=?";
-    private static final String DELETE_ALL_ITEMS = "DELETE FROM tblphone";
+    private static final String INSERT_INTO_CONTACTS = "INSERT INTO tblphone (pname, pnumber1,pnumber2) VALUES (?,?,?)";
+    private static final String FIND_CONTACT_BY_ID = "SELECT * FROM tblphone WHERE id=? order by id";
+    private static final String FIND_CONTACT_BY_NAME = "SELECT * FROM tblphone WHERE pname LIKE '%";
+    private static final String FIND_ALL_CONTACTS = "SELECT * FROM tblphone order by id";
+    private static final String UPDATE_ONE_CONTACT = "UPDATE tblphone SET pname=?, pnumber1=?,pnumber2=? WHERE id=?";
+
+    private static final String DELETE_ONE_CONTACT = "DELETE FROM tblphone WHERE id = ?";
+    private static final String DELETE_ALL_CONTACTS = "DELETE FROM tblphone WHERE id > 6;";
 
     private static final String DROP_TABLE = "DROP TABLE IF EXISTS tblphone;";
     private static final String CREATE_TABLE = "CREATE TABLE tblphone (id SERIAL PRIMARY KEY,pname TEXT NOT NULL, pnumber1 BIGINT NOT NULL,pnumber2 BIGINT);";
@@ -66,7 +67,7 @@ public class contactDaoImplemented implements contactsDao {
 
     @Override
     public void formatContactsTable() {
-        formatData();
+        resetContacts();
     }
 
 
@@ -75,7 +76,7 @@ public class contactDaoImplemented implements contactsDao {
         PreparedStatement statement;
 
         try {
-            statement = connection.prepareStatement(INSERT_INTO_ITEMS);
+            statement = connection.prepareStatement(INSERT_INTO_CONTACTS);
             // statement.setString(1, contact.getName());
             // statement.setInt(2, contact.getPnumber1());
             // statement.setInt(3, contact.getPnumber2());
@@ -98,7 +99,7 @@ public class contactDaoImplemented implements contactsDao {
         Contact searchedItem = null;
 
         try {
-            statement = connection.prepareStatement(FIND_ITEM_BY_ID);
+            statement = connection.prepareStatement(FIND_CONTACT_BY_ID);
             statement.setInt(1, id);
             List<Contact> items = getAllContactsFromResultContacts(statement.executeQuery());
             if (items.size() > 0) {
@@ -122,7 +123,7 @@ public class contactDaoImplemented implements contactsDao {
 
         try {
 
-            statement = connection.prepareStatement(FIND_ITEM_BY_NAME + pname + "%'");
+            statement = connection.prepareStatement(FIND_CONTACT_BY_NAME + pname + "%'");
 
             List<Contact> items = getAllContactsFromResultContacts(statement.executeQuery());
             if (items.size() > 0) {
@@ -145,7 +146,7 @@ public class contactDaoImplemented implements contactsDao {
 
         try {
             statement = connection.createStatement();
-            result = getAllContactsFromResultContacts(statement.executeQuery(FIND_ALL_ITEMS));
+            result = getAllContactsFromResultContacts(statement.executeQuery(FIND_ALL_CONTACTS));
             if (result.size() == 0) {
            
                 logger.warn("No contacts exist currently");
@@ -177,7 +178,7 @@ public class contactDaoImplemented implements contactsDao {
                 System.out.print("  Office No.:  ");
                 System.out.println(resultSet.getString(4));
 
-                Integer id = resultSet.getInt("id"); /// xxxxxxxxxx MAKE CONTACT OBJET
+                Integer id = resultSet.getInt("id"); 
                 String name = resultSet.getString("pname");
                 int pnumber1 = resultSet.getInt("pnumber1");
                 int pnumber2 = resultSet.getInt("pnumber2");
@@ -207,7 +208,7 @@ public class contactDaoImplemented implements contactsDao {
         }
 
         try {
-            pst = connection.prepareStatement(UPDATE_ITEM);
+            pst = connection.prepareStatement(UPDATE_ONE_CONTACT);
             pst.setString(1, pname);
             pst.setInt(2, pnumber1);
             pst.setInt(3, pnumber2);
@@ -225,14 +226,16 @@ public class contactDaoImplemented implements contactsDao {
         PreparedStatement statement;
 
         Contact contactToDelete = findContactById(id);
+      
         if (contactToDelete == null) {
             logger.warn("The contact Id number " + contactToDelete + " is non-existant");
         } else {
             try {
-                statement = connection.prepareStatement(DELETE_ITEM);
+                statement = connection.prepareStatement(DELETE_ONE_CONTACT);
                 statement.setInt(1, id);
                 statement.executeUpdate();
-                logger.info("One contact with Id no. :" + contactToDelete +"was deleted succesfully");
+                statement.close();          
+                logger.info(" One contact was deleted succesfully");
             } catch (SQLException e) {
                 e.printStackTrace();
                 logger.error("Sorry, - something went wrong!", e);
@@ -244,7 +247,7 @@ public class contactDaoImplemented implements contactsDao {
         PreparedStatement statement;
 
         try {
-            statement = connection.prepareStatement(DELETE_ALL_ITEMS);
+            statement = connection.prepareStatement(DELETE_ALL_CONTACTS);
             statement.executeUpdate();
             logger.info("All contacts deleted successfully");
         } catch (SQLException e) {
@@ -253,7 +256,7 @@ public class contactDaoImplemented implements contactsDao {
         }
     }
 
-    private void formatData() {
+    private void resetContacts() {
         try {
             Statement stmt1 = connection.createStatement();
             Statement stmt2 = connection.createStatement();

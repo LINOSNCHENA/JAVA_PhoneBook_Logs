@@ -10,7 +10,7 @@ import com.apiRepos.servicesApi.dataSearch;
 import com.model.HelpMenu;
 
 public class setUp {
-    static Logger log = Logger.getLogger(setUp.class.getName());
+    static Logger logSetUp = Logger.getLogger(setUp.class.getName());
 
     public static void main(String[] args) throws SQLException {
 
@@ -18,7 +18,6 @@ public class setUp {
         dataEntry phoneBookInsert = new dataEntry();
         dataEdit phoneBookUpdate = new dataEdit();
         dataSearch phoneBookSearch = new dataSearch();
-        dataSearch phoneBookLogs = new dataSearch();
 
         Scanner input = new Scanner(System.in);
         String line = input.nextLine().trim();
@@ -39,28 +38,28 @@ public class setUp {
                     break; // CRUD #2 Read
                 case "name":
                     phoneBookSearch.findNameData();
-                    break; // CRUD #3 Read
+                    break; // CRUD #2 Read
                 case "number":
                     phoneBookSearch.findOneData();
-                    break; // CRUD #3 Read
+                    break; // CRUD #2 Read
                 case "delete":
                     phoneBookSearch.deleteData();
-                    break; // CRUD #3 delete
+                    break; // CRUD #4 delete
                 case "reset1":
-                    phoneBookLogs.formatLogs();
-                    break; // CRUD #3 delete
+                    phoneBookSearch.formatContacts();
+                    break; // CRUD #4 delete contacts
                 case "reset2":
-                    phoneBookSearch.formatData();
-                    break; // CRUD #3 delete
-                case "admin":
-                    phoneBookLogs.findLogs();
-                    break; // CRUD #3 Read
+                    phoneBookSearch.formatLogs();
+                    break; // CRUD #4 delete logs
+                case "logs":
+                    phoneBookSearch.findLogs();
+                    break; // CRUD #2 Read logs
                 default:
-                    log.info(":   Please select an available command word >>> ");
+                    logSetUp.info(":   Please select an available command word >>> ");
                     break;
             }
             line = input.nextLine().trim();
-            log.info("Task computation complete >>> \n");
+            logSetUp.info("Task computation complete >>> \n");
 
         }
         input.close();

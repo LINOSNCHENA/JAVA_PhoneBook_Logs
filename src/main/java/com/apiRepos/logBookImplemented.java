@@ -19,12 +19,11 @@ public class logBookImplemented implements logBook {
 
     private final Connection connection = connFactory.getConnection(dbConfig.url, dbConfig.user1, dbConfig.passwd1);
 
-    private static final String DROP_LOGS_TABLE = "DROP TABLE IF EXISTS phonelogs;";
+    private static final String DROP_LOGS_TABLE = "DROP TABLE IF EXISTS PHONELOGS;";
     private static final String CREATE_LOGS_TABLE = "CREATE TABLE PHONELOGS (USER_ID VARCHAR(20) NOT NULL,DATED VARCHAR	(200)NOT NULL,LOGGER VARCHAR	(50) NOT NULL,LEVEL VARCHAR	(10) NOT NULL, MESSAGE VARCHAR	(1000) NOT NULL);";
-    private static final String FIND_CONTACTS_LOGS = "SELECT * FROM phonelogs";
+    private static final String FIND_CONTACTS_LOGS = "SELECT * FROM PHONELOGS";
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+ 
     private List<Log> getAllLogsFromResultLogs(ResultSet resultSet) {
 
         List<Log> result = new ArrayList<>();
@@ -64,7 +63,7 @@ public class logBookImplemented implements logBook {
         }
         return result;
     }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     private List<Log> findLogs() {
         Statement statement;
@@ -102,7 +101,6 @@ public class logBookImplemented implements logBook {
             logger.error("Sorry, - something went wrong!", e);
         }
       }
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public List<Log> findAllLogs() {

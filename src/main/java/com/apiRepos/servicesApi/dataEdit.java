@@ -14,9 +14,8 @@ public class dataEdit {
     int pnumber2 = 0;
     String pname = "UNKNOWN";
 
-    //////////////////////////////////////////////////////////////////////////// NAME
 
-    System.out.print("Enter an EDIT name of the contact : ");
+    System.out.print("Enter an updated name of the contact : ");
     scanner: while (scanner.hasNext()) {
       if (scanner.hasNextLine()) {
         pname = scanner.nextLine();
@@ -33,9 +32,7 @@ public class dataEdit {
       }
     }
 
-    /////////////////////////////////////////////////////////////////////////// IDENTIFICATION
-
-    System.out.print("Enter the EDIT contact identity number to edit: ");
+    System.out.print("Enter the contact identity number to update : ");
     scanner: while (scanner.hasNext()) {
       if (scanner.hasNextInt()) {
         id = scanner.nextInt();
@@ -52,9 +49,8 @@ public class dataEdit {
       }
     }
 
-    ////////////////////////////////////////////////////////////////////////// NUMBERS
 
-    System.out.print("Enter the EDIT MOBILE PHONE number: ");
+    System.out.print("Enter the updated Mobile phone number: ");
     scanner: while (scanner.hasNext()) {
       if (scanner.hasNextInt()) {
         pnumber1 = scanner.nextInt();
@@ -71,7 +67,7 @@ public class dataEdit {
         scanner.next();
       }
     }
-    System.out.print("Enter the EDIT OFFICE PHONE number: ");
+    System.out.print("Enter the updated office phone number: ");
     scanner: while (scanner.hasNext()) {
       if (scanner.hasNextInt()) {
         pnumber2 = scanner.nextInt();
@@ -88,10 +84,9 @@ public class dataEdit {
         scanner.next();
       }
     }
-    contactsDao phoneDefaults = new contactDaoImplemented();
-    phoneDefaults.updateOneContact(id, pname.toUpperCase(), pnumber1, pnumber2);
+    contactsDao phoneUpdater = new contactDaoImplemented();
+    phoneUpdater.updateOneContact(id, pname.toUpperCase(), pnumber1, pnumber2);
 
-    System.out.println("\n !======================= DATA_EDIT #2 COMPLETE ===========================!\n");
-    //////////////////////////////////////////////////////////////////////////////////// END
+    System.out.println("\n !======================= DATA_UPDATE IS COMPLETE ===========================!\n");
   }
 }

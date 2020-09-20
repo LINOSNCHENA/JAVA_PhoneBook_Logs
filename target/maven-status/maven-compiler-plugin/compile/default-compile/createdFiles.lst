@@ -1,13 +1,13 @@
-com\model\contactsManual.class
+com\model\HelpMenu.class
 com\apiRepos\servicesApi\dataEntry.class
 com\apiRepos\contactsDao.class
 com\apiRepos\logBook.class
+com\apiRepos\logBookImplemented.class
 com\setUp.class
 com\apiRepos\servicesApi\dataEdit.class
 com\apiRepos\servicesApi\dataSearch.class
-com\apiRepos\contactDaoImpl.class
 com\dbase\dbConfig.class
+com\apiRepos\contactDaoImplemented.class
 com\model\Contact.class
 com\model\Log.class
 com\dbase\connFactory.class
-com\apiRepos\logBookImp.class

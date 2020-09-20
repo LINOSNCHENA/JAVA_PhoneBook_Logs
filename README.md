@@ -44,19 +44,19 @@ Available options to manipulate phonebook using console application.
 
 "HELP   - to lists all valid commands available in this application "
 
-"DELETE - to erase a contact from the phone book\n"
-"LIST   - to lists all saved contacts sorted by date of entry"
-"ADD    - to saves a new contact entry into the phone book" +
+"DELETE - to erase a contact from the phone book\n"\
+"LIST   - to lists all saved contacts sorted by date of entry"\
+"ADD    - to saves a new contact entry into the phone book" 
 
-"NAME   - to search for a contact by the contact name"
-"NUMBER   - to search for a contact by the contact number"
+"NAME   - to search for a contact by the contact name"\
+"NUMBER   - to search for a contact by the contact number"\
 "UPDATE - to edit the phone number of  existing contact"
 
-"RESET1   - Deletes all contacts records and restores factory defaults"
+"RESET1   - Deletes all contacts records and restores factory defaults"\
 "RESET2   - Deletes all logs datails & records and restores factory defaults"
 
-"ADMIN - to view past log data manipulations of contacts"
-"EXIT   - STOP using the Phone Book application console" +
+"ADMIN - to view past log data manipulations of contacts"\
+"EXIT   - STOP using the Phone Book application console" 
 
 "--------------------------------------------------------------"
 

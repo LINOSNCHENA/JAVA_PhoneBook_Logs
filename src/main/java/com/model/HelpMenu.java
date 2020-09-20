@@ -9,21 +9,23 @@ public class HelpMenu {
         + " Select one action below and then type its command below\n"
         + "=============================================================\n" +
 
-        "HELP   - to lists all valid commands available in this application \n"
+        "HELP   - to lists all available valid commands on this application \n\n"
 
-        + "DELETE - to erase a contact from the phone book\n"
+       
+       
+        + "ADD    - to insert a new contact entry into the phone book\n" 
         + "LIST   - to lists all saved contacts sorted by date of entry\n"
-        + "ADD    - to saves a new contact entry into the phone book\n\n" +
+        + "DELETE - to erase a specified contact from the phone book\n"+
 
         "NAME   - to search for a contact by the contact name\n"
-        + "NUMBER   - to search for a contact by the contact number\n"
-        + "UPDATE - to edit the phone number of  existing contact\n\n"
+        + "NUMBER   - to search for a contact by the contact ID-number\n"
+        + "UPDATE - to edit the contact details of an existing contact\n\n"
 
         + "RESET1   - Deletes all contacts records and restores factory defaults\n"
-        + "RESET2   - Deletes all logs datails & records and restores factory defaults\n\n"
+        + "RESET2   - Deletes all logs datails in the log database tables\n\n"
 
-        + "ADMIN - to view past log data manipulations of contacts\n"
-        + "EXIT   - STOP using the Phone Book application console\n" +
+        + "LOGS   - To view details of all log data manipulations recordss\n"
+        + "EXIT   - End the usage of this contacts book application console\n" +
 
         "--------------------------------------------------------------\n\n"
         + " To continue, please enter an action command here >>>  ";

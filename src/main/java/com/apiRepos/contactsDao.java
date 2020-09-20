@@ -9,6 +9,7 @@ public interface contactsDao {
     void insertNewContact(String pname, int pnumber1, int pnumber2);
 
     List<Contact> findAllContacts();
+
     Contact findContactById(Integer id);
 
     Contact findContactByName(String pname);
