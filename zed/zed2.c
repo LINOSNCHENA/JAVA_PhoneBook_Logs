@@ -1,17 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
+// Extra
+#include <string.h>
 
-int main()
-{
-   const char* names[] = {"apples", "oranges", "grapes"};
+int main () {
+   char *str;
+   printf("======================= START=====================\n");
 
-   const char* first = names[0];
-   const char* second = names[1];
-   const char* third = names[2];
+   /* Initial memory allocation */
+   str = (char *) malloc(15);
+   strcpy(str, "pembahighschool");
+   printf("String1 = %s,  Address1 = %u\n", str, str);
 
-   const char* foo = &(*names[0]);
+   /* Reallocating memory */
+   str = (char *) realloc(str, 25);
+   strcat(str, ".com");
+   printf("String2 = %s,  Address1 = %u\n", str, str);
 
-   printf("%s", foo);
-   printf("%s", second);
-   printf("%s", third);
-
+   free(str);
+    printf("===================== FINISH ======================\n");
+   
+   return(0);
 }
