@@ -1,6 +1,4 @@
 package com;
-
-import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -12,7 +10,7 @@ import com.model.HelpMenu;
 public class setUp {
     static Logger logSetUp = Logger.getLogger(setUp.class.getName());
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
         com.model.HelpMenu.helpOrMenu();
         dataEntry phoneBookInsert = new dataEntry();

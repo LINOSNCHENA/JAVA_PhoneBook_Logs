@@ -1,14 +1,14 @@
 # PHONE BOOK COMMAND LINE APPLICATION
 
 ## 1. ENVIRONMENTAL REQUIREMENTS
-=================================
+====================================
 1. Java 8 installation
 2. Postgresql Or MySql database installation
 3. Maven installation
 4. IDE(VSCode tested), or CMD/Bash terminal
 
 ## 2. PROJECT INSTALLATION CHECKING
-=====================================
+=======================================
 
 ```
 echo %JAVA_HOME%
@@ -19,7 +19,7 @@ echo %CLASSPATH%
 ```
 
 ## 3. PROCEDURE AND COMMANDS TO EXECUTE BUILD
-============================================
+==================================================
 
 Update USERNAME/PASSWORD for the database table\
 Contacts database setting is found in folder main/java/dbase/dbConfig.java\
