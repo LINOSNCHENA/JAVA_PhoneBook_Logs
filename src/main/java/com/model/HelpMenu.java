@@ -5,7 +5,7 @@ public class HelpMenu {
   public static void helpOrMenu() {
 
     String adviceMenu = "-------------------------------------------------------------\n"
-        + "       WELCOME TO MY PHONEBOOK APPLICATION               \n"
+        + "       WELCOME TO PHONEBOOK APPLICATION  v3             \n"
         + " Select one action below and then type its command below\n"
         + "=============================================================\n" +
 
