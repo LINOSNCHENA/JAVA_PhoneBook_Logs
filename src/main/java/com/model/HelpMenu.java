@@ -21,7 +21,13 @@ public class HelpMenu {
         + "NUMBER   - to search for a contact by the contact ID-number\n"
         + "UPDATE - to edit the contact details of an existing contact\n\n"
 
+<<<<<<< HEAD
         + "RESET   - Deletes all database records and restores factory defaults\n"
+=======
+        + "RESET1   - Deletes all contacts records and restores factory defaults\n"
+        + "RESET2   - Deletes all logs datails in the log database tables\n\n"
+
+>>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
         + "LOGS   - To view details of all log data manipulations recordss\n"
         + "EXIT   - End the usage of this contacts book application console\n" +
 

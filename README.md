@@ -60,9 +60,7 @@ Available options to manipulate the phonebook using console application.
 "NUMBER   - to search for a contact by the contact number"\
 "UPDATE - to edit the phone number of  existing contact"
 
-"RESET1   - Deletes all contacts records and restores factory defaults"\
-"RESET2   - Deletes all logs details & records and restores factory defaults"
-
+"RESET   - Deletes all database records and restores factory defaults"
 "LOGS - to view past log data manipulations of contacts"\
 "EXIT   - STOP using the Phone Book application console" 
 
@@ -71,7 +69,7 @@ Available options to manipulate the phonebook using console application.
 " To continue, please enter an action command here >>>  ";
     
 # 6. APPLICATION CONSOLE- INTERFACE UX 
-=========================================
+===========================================
 
 Here are screen-shots from the output of application's console
 

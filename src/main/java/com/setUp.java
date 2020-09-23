@@ -1,5 +1,8 @@
 package com;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -44,10 +47,19 @@ public class setUp {
                 case "delete":
                     phoneBookSearch.deleteData();
                     break; // CRUD #4 delete
+<<<<<<< HEAD
                 case "reset":
                     phoneBookSearch.formatLogs();
                     phoneBookSearch.formatContacts();
                     break; // CRUD #4 delete contacts/logs
+=======
+                case "reset1":
+                    phoneBookSearch.formatContacts();
+                    break; // CRUD #4 delete contacts
+                case "reset2":
+                    phoneBookSearch.formatLogs();
+                    break; // CRUD #4 delete logs
+>>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
                 case "logs":
                     phoneBookSearch.findLogs();
                     break; // CRUD #2 Read logs
