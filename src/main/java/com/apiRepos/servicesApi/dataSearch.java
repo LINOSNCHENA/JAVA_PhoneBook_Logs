@@ -96,30 +96,18 @@ public class dataSearch {
     }
     contactsDao phoneSearcher = new contactDaoImplemented();
     phoneSearcher.deleteOneContact(id);
-<<<<<<< HEAD
     System.out.println("\n !============================ DATA_DELETION IS COMPLETE =========================!\n");
-=======
-    System.out.println("\n !==================== DATA_DELETION IS COMPLETE =======================!\n");
->>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
   }
 
   public void deleteAllData() {
     contactsDao phoneSearcher = new contactDaoImplemented();
     phoneSearcher.deleteAllContacts();
-<<<<<<< HEAD
     System.out.println("\n !=========================== DELETED_ALL_DATA COMPLETE ==========================!\n");
-=======
-    System.out.println("\n !======================= DELETED_ALL_DATA COMPLETE =======================!\n");
->>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
   }
 
   public void formatContacts() {
     contactsDao phoneSearcher = new contactDaoImplemented();
     phoneSearcher.formatContactsTable();
-<<<<<<< HEAD
-=======
-    System.out.println("\n !=========================== DATA_RESET COMPLETE ==========================!\n");
->>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
 
   }
 
@@ -127,23 +115,13 @@ public class dataSearch {
   public void formatLogs() {
     logBookImplemented phoneLogs = new logBookImplemented();
     phoneLogs.formatLogsTable();
-<<<<<<< HEAD
     System.out.println("\n !======================= FORMATING_CONTACTS_&_LOGS_COMPLETE =======================!\n");
-=======
-    System.out.println("\n !======================= FORMAT_LOGS  COMPLETE =======================!\n");
->>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
   }
 
   public void findLogs() {
     logBookImplemented phoneLogs = new logBookImplemented();
     phoneLogs.findAllLogs();
-<<<<<<< HEAD
     System.out.println("\n !================================ FIND_LOGS  COMPLETE =============================!\n");
-=======
-    // logSearch.info("\n ======================= FIND_LOGS COMPLETE
-    // =======================");
-    System.out.println("\n !======================= FIND_LOGS  COMPLETE ========================!\n");
->>>>>>> 07860349a320800db824b7a51090f7d3bd9fd2f6
 
   }
 
