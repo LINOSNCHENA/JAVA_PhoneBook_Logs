@@ -73,8 +73,8 @@ Available options to manipulate the phonebook using console application.
 
 Here are screen-shots from the output of application's console
 
-![ Muntu App SMS # 1 ](https://github.com/LINOSNCHENA/PhoneBookApp/blob/master/ux/page%20(1).png)
-![ Muntu App SMS # 2 ](https://github.com/LINOSNCHENA/PhoneBookApp/blob/master/ux/page%20(2).png)
+![ Muntu App SMS # 1 ](https://github.com/LINOSNCHENA/JAVA_PhoneBook_Logs/blob/master/ux/page%20(1).png)
+![ Muntu App SMS # 2 ](https://github.com/LINOSNCHENA/JAVA_PhoneBook_Logs/blob/master/ux/page%20(2).png)
 
-![ Muntu App SMS # 3 ](https://github.com/LINOSNCHENA/PhoneBookApp/blob/master/ux/page%20(3).png)
-![ Muntu App SMS # 4 ](https://github.com/LINOSNCHENA/PhoneBookApp/blob/master/ux/page%20(4).png)
+![ Muntu App SMS # 3 ](https://github.com/LINOSNCHENA/JAVA_PhoneBook_Logs/blob/master/ux/page%20(3).png)
+![ Muntu App SMS # 4 ](https://github.com/LINOSNCHENA/JAVA_PhoneBook_Logs/blob/master/ux/page%20(4).png)
