@@ -1,4 +1,5 @@
 package com.apiRepos;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,16 +20,16 @@ public class contactDaoImplemented implements contactsDao {
     private static final String INSERT_INTO_CONTACTS = "INSERT INTO tblphone (pname, pnumber1,pnumber2) VALUES (?,?,?)";
     private static final String FIND_CONTACT_BY_ID = "SELECT * FROM tblphone WHERE id=? order by id";
     private static final String FIND_CONTACT_BY_NAME = "SELECT * FROM tblphone WHERE pname LIKE '%";
-    private static final String FIND_ALL_CONTACTS = "SELECT * FROM tblphone order by id";
+    private static final String FIND_ALL_CONTACTS = "SELECT * FROM tblphone order by id;";
     private static final String UPDATE_ONE_CONTACT = "UPDATE tblphone SET pname=?, pnumber1=?,pnumber2=? WHERE id=?";
 
     private static final String DELETE_ONE_CONTACT = "DELETE FROM tblphone WHERE id = ?";
     private static final String DELETE_ALL_CONTACTS = "DELETE FROM tblphone WHERE id > 6;";
 
     private static final String DROP_TABLE = "DROP TABLE IF EXISTS tblphone;";
-    private static final String CREATE_TABLE = "CREATE TABLE tblphone (id SERIAL PRIMARY KEY,pname TEXT NOT NULL, pnumber1 BIGINT NOT NULL,pnumber2 BIGINT);";
-    private static final String INSERT1_TABLE = "INSERT INTO tblphone(pname,pnumber1,pnumber2) VALUES('POLICE-EMERGENCE', 1992020,223467890),('HOSPITAL-EMERGENCY',2882020,12356789);";
-    private static final String INSERT2_TABLE = "INSERT INTO tblphone(pname,pnumber1,pnumber2) VALUES('FIRE-EMERGENCY', 37720280,12348910),('AMBULANCE-POLICE',46662020,112342020);";
+    private static final String CREATE_TABLE = "CREATE TABLE tblphone (id SERIAL PRIMARY KEY,pname TEXT NOT NULL, pnumber1 BIGINT NOT NULL,pnumber2 BIGINT,pstars INT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
+    private static final String INSERT1_TABLE = "INSERT INTO tblphone(pname,pnumber1,pnumber2,pstars) VALUES('POLICE-E', 1992020,2234678,90),('HOSPITAL-E',2882020,12356,789);";
+    private static final String INSERT2_TABLE = "INSERT INTO tblphone(pname,pnumber1,pnumber2,pstars) VALUES('FIRE-E', 37720280,123489,10),('AMBULANCE-P',46662020,112342,020);";
 
     @Override
     public void insertNewContact(String pname, int pnumber1, int pnumber2) {
@@ -69,7 +70,6 @@ public class contactDaoImplemented implements contactsDao {
     public void formatContactsTable() {
         resetContacts();
     }
-
 
     public void insertContact(String pname, int pnumber1, int pnumber2) {
 
@@ -148,7 +148,7 @@ public class contactDaoImplemented implements contactsDao {
             statement = connection.createStatement();
             result = getAllContactsFromResultContacts(statement.executeQuery(FIND_ALL_CONTACTS));
             if (result.size() == 0) {
-           
+
                 logger.warn("No contacts exist currently");
             }
             statement.close();
@@ -161,8 +161,7 @@ public class contactDaoImplemented implements contactsDao {
         return result1;
     }
 
-
-       private List<Contact> getAllContactsFromResultContacts(ResultSet resultSet) {
+    private List<Contact> getAllContactsFromResultContacts(ResultSet resultSet) {
 
         List<Contact> result = new ArrayList<>();
 
@@ -173,24 +172,29 @@ public class contactDaoImplemented implements contactsDao {
                 System.out.print(resultSet.getInt(1));
                 System.out.print(" Name :  ");
                 System.out.print(resultSet.getString(2));
-                System.out.print("  Mobile No.:  ");
+                System.out.print(" Mob No.:  ");
                 System.out.print(resultSet.getString(3));
-                System.out.print("  Office No.:  ");
+                System.out.print("  Off No.:  ");
                 System.out.println(resultSet.getString(4));
+                System.out.print(" Stars :  ");
+                System.out.print(resultSet.getString(5));
+                System.out.print("  Dated  :  ");
+                System.out.println(resultSet.getString(6));
+  
 
-                Integer id = resultSet.getInt("id"); 
-                String name = resultSet.getString("pname");
-                int pnumber1 = resultSet.getInt("pnumber1");
-                int pnumber2 = resultSet.getInt("pnumber2");
+            Integer id = resultSet.getInt("id");
+            String name = resultSet.getString("pname");
+            int pnumber1 = resultSet.getInt("pnumber1");
+            int pnumber2 = resultSet.getInt("pnumber2");
 
-                Contact contact = new Contact();
-                contact.setId(id);
-                contact.setName(name);
-                contact.setPnumber1(pnumber1);
-                contact.setPnumber2(pnumber2);
+            Contact contact = new Contact();
+            contact.setId(id);
+            contact.setName(name);
+            contact.setPnumber1(pnumber1);
+            contact.setPnumber2(pnumber2);
 
-                result.add(contact);
-            }
+            result.add(contact);}
+
         } catch (SQLException e) {
             e.printStackTrace();
             logger.error("Sorry, - something went wrong!", e);
@@ -222,11 +226,9 @@ public class contactDaoImplemented implements contactsDao {
     }
 
     private void deleteContact(Integer id) {
-
         PreparedStatement statement;
-
         Contact contactToDelete = findContactById(id);
-      
+
         if (contactToDelete == null) {
             logger.warn("The contact Id number " + contactToDelete + " is non-existant");
         } else {
@@ -234,7 +236,7 @@ public class contactDaoImplemented implements contactsDao {
                 statement = connection.prepareStatement(DELETE_ONE_CONTACT);
                 statement.setInt(1, id);
                 statement.executeUpdate();
-                statement.close();          
+                statement.close();
                 logger.info(" One contact was deleted succesfully");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -271,7 +273,7 @@ public class contactDaoImplemented implements contactsDao {
             stmt3.close();
             stmt4.close();
             logger.info("All contacts records have been formated successfuly");
-           
+
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
             System.exit(0);

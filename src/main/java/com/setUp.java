@@ -8,6 +8,7 @@ import com.apiRepos.servicesApi.dataSearch;
 import com.model.HelpMenu;
 
 public class setUp {
+
     static Logger logSetUp = Logger.getLogger(setUp.class.getName());
 
     public static void main(String[] args) {
@@ -27,29 +28,30 @@ public class setUp {
                     break;
                 case "add":
                     phoneBookInsert.insertData();
-                    break; // CRUD #1 Create
-                case "update":
-                    phoneBookUpdate.updateData();
-                    break; // CRUD #3 Update
+                    break; //  #1 Create
+
                 case "list":
                     phoneBookSearch.findAllData();
-                    break; // CRUD #2 Read
+                    break; //  #2 Read
                 case "name":
                     phoneBookSearch.findNameData();
-                    break; // CRUD #2 Read
+                    break; //  #2 Read
                 case "number":
                     phoneBookSearch.findOneData();
-                    break; // CRUD #2 Read
+                    break; //  #2 Read
+                    case "update":
+                    phoneBookUpdate.updateData();
+                    break; //  #3 Update
                 case "delete":
                     phoneBookSearch.deleteData();
-                    break; // CRUD #4 delete
+                    break; //  #4 delete
                 case "reset":
                     phoneBookSearch.formatLogs();
                     phoneBookSearch.formatContacts();
-                    break; // CRUD #4 delete contacts/logs
+                    break; //  #4 delete contacts/logs
                 case "logs":
                     phoneBookSearch.findLogs();
-                    break; // CRUD #2 Read logs
+                    break; // #2 Read logs
                 default:
                     logSetUp.info(":   Please select an available command word >>> ");
                     break;
