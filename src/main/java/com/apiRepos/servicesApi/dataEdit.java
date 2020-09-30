@@ -4,16 +4,14 @@ import java.util.Scanner;
 import com.apiRepos.contactDaoImplemented;
 import com.apiRepos.contactsDao;
 
-
 public class dataEdit {
   public void updateData() {
     Scanner scanner = new Scanner(System.in);
     final int MAX_LENGTH = 20;
     int id = 0;
-    int pnumber1 = 0;
+    int pnumber1 = 0, pstars = 0;
     int pnumber2 = 0;
     String pname = "UNKNOWN";
-
 
     System.out.print("Enter an updated name of the contact : ");
     scanner: while (scanner.hasNext()) {
@@ -48,7 +46,6 @@ public class dataEdit {
         scanner.next();
       }
     }
-
 
     System.out.print("Enter the updated Mobile phone number: ");
     scanner: while (scanner.hasNext()) {
@@ -85,8 +82,11 @@ public class dataEdit {
       }
     }
     contactsDao phoneUpdater = new contactDaoImplemented();
-    phoneUpdater.updateOneContact(id, pname.toUpperCase(), pnumber1, pnumber2);
 
-    System.out.println("\n !======================= DATA_UPDATE IS COMPLETE ===========================!\n");
+    phoneUpdater.updateOneContact(id, pname.toUpperCase(), pnumber1, pnumber2, pstars);
+
+    System.out.println(
+        "\n ===================================== DATA_UPDATE IS COMPLETE ====================================\n");
+
   }
 }

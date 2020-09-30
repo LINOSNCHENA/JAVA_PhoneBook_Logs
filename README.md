@@ -1,14 +1,14 @@
-# PHONE BOOK COMMAND LINE APPLICATION
+# CONTACTS LIST COMMAND LINE APPLICATION
 
 ## 1. ENVIRONMENTAL REQUIREMENTS
-====================================
+
 1. Java 8 installation
 2. Postgresql Or MySql database installation
 3. Maven installation
 4. IDE(VSCode tested), or CMD/Bash terminal
 
 ## 2. PROJECT INSTALLATION CHECKING
-=======================================
+
 
 ```
 echo %JAVA_HOME%
@@ -19,12 +19,12 @@ echo %CLASSPATH%
 ```
 
 ## 3. PROCEDURE AND COMMANDS TO EXECUTE BUILD
-==================================================
+
 
 Update USERNAME/PASSWORD for the database table\
 Database schema  : PRESLY
-Database table1  : TBLPHONE
-Database table2  : PHONELOGS
+Database table1  : CONTACTSLIST
+Database table2  : CONTACTSLOGS
 
 Contacts database setting is found in folder main/java/dbase/dbConfig.java\
 Logs database setting is found in folder main/resources/log4j.properties
@@ -38,14 +38,14 @@ mvn test
 
 
 ## 4. CMD COMMAND TO RUN AFTER EXECUTING A SUCCESSFUL BUILT
-===============================================================
+
 
 java -cp target/focusphone-1.0-SNAPSHOT.jar com.setUp
 
 
 
 ## 5. SERVICES AVAILABLE ON THE APP
-======================================
+
 
 
 Available options to manipulate the phonebook using console application.
@@ -69,7 +69,7 @@ Available options to manipulate the phonebook using console application.
 " To continue, please enter an action command here >>>  ";
     
 # 6. APPLICATION CONSOLE- INTERFACE UX 
-===========================================
+
 
 Here are screen-shots from the output of application's console
 

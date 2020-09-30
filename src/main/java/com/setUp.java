@@ -46,8 +46,8 @@ public class setUp {
                     phoneBookSearch.deleteData();
                     break; //  #4 delete
                 case "reset":
-                    phoneBookSearch.formatLogs();
-                    phoneBookSearch.formatContacts();
+                    phoneBookSearch.deleteAllLogs();
+                    phoneBookSearch.deleteAllContacts();
                     break; //  #4 delete contacts/logs
                 case "logs":
                     phoneBookSearch.findLogs();

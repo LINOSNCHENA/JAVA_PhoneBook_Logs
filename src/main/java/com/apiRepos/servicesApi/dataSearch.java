@@ -15,7 +15,8 @@ public class dataSearch {
   public void findAllData() {
     contactsDao phoneSearcher = new contactDaoImplemented();
     phoneSearcher.findAllContacts();
-    System.out.println("\n !======================= DATA_SEARCH IS COMPLETE =======================!\n");
+    System.out.println(
+        "\n ================================== DATA_SEARCH IS COMPLETE =======================================\n");
   }
 
   public void findOneData() {
@@ -41,7 +42,8 @@ public class dataSearch {
     }
     contactsDao phoneSearcher = new contactDaoImplemented();
     phoneSearcher.findContactById(id);
-    System.out.println("\n !======================= DATA_ID SEARCH IS COMPLETE ========================!\n");
+    System.out.println(
+        "\n =================================== DATA_ID SEARCH IS COMPLETE ===================================\n");
   }
 
   public void findNameData() {
@@ -50,11 +52,13 @@ public class dataSearch {
     Scanner scanner = new Scanner(System.in);
     final int MAX_LENGTH = 20;
     String pname = "";
+    String nameX = "";
     System.out.print("Enter a name of the contact to search : ");
     scanner: while (scanner.hasNext()) {
       if (scanner.hasNextLine()) {
         pname = scanner.nextLine();
-        if (String.valueOf(pname).length() <= MAX_LENGTH) {
+        nameX=pname.toUpperCase();
+        if (String.valueOf(nameX).length() <= MAX_LENGTH) {
           break scanner;
         } else {
           logger.error("ERROR: Input contact name was too long");
@@ -67,11 +71,12 @@ public class dataSearch {
       }
     }
     try {
-      phoneSearcher.findContactByName(pname);
+      phoneSearcher.findContactByName(nameX);
     } catch (Exception ex) {
       logger.error("Sorry, - something wrong!", ex);
     }
-    System.out.println("\n !======================= NAME_DATA SEARCH COMPLETE ============================!\n");
+    System.out.println(
+        "\n ================================ NAME_DATA SEARCH COMPLETE =======================================\n");
   }
 
   public void deleteData() {
@@ -96,32 +101,29 @@ public class dataSearch {
     }
     contactsDao phoneSearcher = new contactDaoImplemented();
     phoneSearcher.deleteOneContact(id);
-    System.out.println("\n !============================ DATA_DELETION IS COMPLETE =========================!\n");
+    System.out.println(
+        "\n ==================================== DATA_DELETION IS COMPLETE ===================================\n");
   }
 
-  public void deleteAllData() {
+  public void deleteAllContacts() {
     contactsDao phoneSearcher = new contactDaoImplemented();
     phoneSearcher.deleteAllContacts();
-    System.out.println("\n !=========================== DELETED_ALL_DATA COMPLETE ==========================!\n");
+    System.out.println(
+        "\n ==================================== DELETED_ALL_DATA COMPLETE ====================================\n");
   }
 
-  public void formatContacts() {
-    contactsDao phoneSearcher = new contactDaoImplemented();
-    phoneSearcher.formatContactsTable();
-
-  }
-
-
-  public void formatLogs() {
+  public void deleteAllLogs() {
     logBookImplemented phoneLogs = new logBookImplemented();
     phoneLogs.formatLogsTable();
-    System.out.println("\n !======================= FORMATING_CONTACTS_&_LOGS_COMPLETE =======================!\n");
+    System.out.println(
+        "\n ================================ FORMATING_CONTACTS_&_LOGS_COMPLETE ================================\n");
   }
 
   public void findLogs() {
     logBookImplemented phoneLogs = new logBookImplemented();
     phoneLogs.findAllLogs();
-    System.out.println("\n !================================ FIND_LOGS  COMPLETE =============================!\n");
+    System.out.println(
+        "\n ==================================== FIND_LOGS  COMPLETE ============================================\n");
 
   }
 

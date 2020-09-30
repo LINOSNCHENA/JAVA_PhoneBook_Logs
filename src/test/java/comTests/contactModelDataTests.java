@@ -20,9 +20,9 @@ public class contactModelDataTests {
     public void setUp(){
         sampleContact = new Contact();
         sampleContact.setId(ID);
-        sampleContact.setName(NAME);
-        sampleContact.setPnumber1(NUMBER1);
-        sampleContact.setPnumber2(NUMBER2);
+        sampleContact.setNamex(NAME);
+        sampleContact.setMobilex(NUMBER1);
+        sampleContact.setOfficex(NUMBER2);
 
     }
 
@@ -30,18 +30,18 @@ public class contactModelDataTests {
     public void shouldCreateContactMarchingHereDetailsSample() throws Exception {
         assertThat(sampleContact).isNotNull();
         assertThat(sampleContact.getId()).isEqualTo(2020);
-        assertThat(sampleContact.getName()).isEqualTo("NIKOLASLORENALEON");
-        assertThat(sampleContact.getPnumber1()).isEqualTo(1234567890);
-        assertThat(sampleContact.getPnumber2()).isEqualTo(1234567891);
+        assertThat(sampleContact.getNamex()).isEqualTo("NIKOLASLORENALEON");
+        assertThat(sampleContact.getMobilex()).isEqualTo(1234567890);
+        assertThat(sampleContact.getOfficex()).isEqualTo(1234567891);
 
     }
     @Test
     public void createdContactDoesNotMarchHereProvidedContact() throws Exception {
         assertThat(sampleContact).isNotNull();
         assertThat(sampleContact.getId()).isEqualTo(2020);
-        assertThat(sampleContact.getName()).isNotEqualTo("NIKOLAS");
-        assertThat(sampleContact.getPnumber1()).isNotEqualTo(123456789);
-        assertThat(sampleContact.getPnumber2()).isNotEqualTo(123456789);
+        assertThat(sampleContact.getNamex()).isNotEqualTo("NIKOLAS");
+        assertThat(sampleContact.getMobilex()).isNotEqualTo(123456789);
+        assertThat(sampleContact.getOfficex()).isNotEqualTo(123456789);
 
     }
 }

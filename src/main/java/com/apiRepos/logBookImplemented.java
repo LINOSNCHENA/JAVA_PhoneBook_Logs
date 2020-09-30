@@ -17,17 +17,15 @@ public class logBookImplemented implements logBook {
 
     final static Logger logger = Logger.getLogger(logBook.class);
 
-    private final Connection connection = connFactory.getConnection(dbConfig.url, dbConfig.user1, dbConfig.passwd1);
+    private final Connection connection = connFactory.getConnection(dbConfig.url, dbConfig.user, dbConfig.passwd);
 
-    private static final String DROP_LOGS_TABLE = "DROP TABLE IF EXISTS PHONELOGS;";
-    private static final String CREATE_LOGS_TABLE = "CREATE TABLE PHONELOGS (USER_ID VARCHAR(20) NOT NULL,DATED VARCHAR	(200)NOT NULL,LOGGER VARCHAR	(50) NOT NULL,LEVEL VARCHAR	(10) NOT NULL, MESSAGE VARCHAR	(1000) NOT NULL);";
-    private static final String FIND_CONTACTS_LOGS = "SELECT * FROM PHONELOGS";
+    private static final String DROP_LOGS_TABLE = "DROP TABLE IF EXISTS CONTACTSLOGS;";
+    private static final String CREATE_LOGS_TABLE = "CREATE TABLE CONTACTSLOGS (USER_ID VARCHAR(20) NOT NULL,DATED VARCHAR	(200)NOT NULL,LOGGER VARCHAR	(50) NOT NULL,LEVEL VARCHAR	(10) NOT NULL, MESSAGE VARCHAR	(1000) NOT NULL);";
+    private static final String FIND_CONTACTS_LOGS = "SELECT * FROM CONTACTSLOGS";
 
- 
     private List<Log> getAllLogsFromResultLogs(ResultSet resultSet) {
 
         List<Log> result = new ArrayList<>();
-
         try {
 
             while (resultSet.next()) {
@@ -39,23 +37,8 @@ public class logBookImplemented implements logBook {
                 System.out.print(resultSet.getString(3));
                 System.out.print(" Message : ");
                 System.out.println(resultSet.getString(5));
-
-                String user_id = resultSet.getString("user_id");
-                String dated = resultSet.getString("dated");
-                String logger = resultSet.getString("logger");
-                String level = resultSet.getString("level");
-                String message = resultSet.getString("message");
-
-                Log contactLogs = new Log();
-                contactLogs.setUser_id(user_id);
-                contactLogs.setDated(dated);
-                contactLogs.setLogger(logger);
-                contactLogs.setLogger(level);
-                contactLogs.setMessage(message);
-                result.add(contactLogs);
             }
-
-            logger.info("ADMIN has performed control tasks");
+            logger.info("Amin has performed control tasks");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -63,7 +46,6 @@ public class logBookImplemented implements logBook {
         }
         return result;
     }
-
 
     private List<Log> findLogs() {
         Statement statement;
@@ -100,7 +82,7 @@ public class logBookImplemented implements logBook {
             System.exit(0);
             logger.error("Sorry, - something went wrong!", e);
         }
-      }
+    }
 
     @Override
     public List<Log> findAllLogs() {

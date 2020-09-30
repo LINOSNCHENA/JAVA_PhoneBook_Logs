@@ -3,21 +3,21 @@ package com.model;
 public class Contact {
 
     private Integer id;
-    private String pname;
-    private int pnumber1;
-    private int pnumber2;
+    private String nameX;
+    private int mobileX;
+    private int officeX;
 
-    public Contact(Integer id, String pname, int pnumber1, int pnumber2) {
+    public Contact(Integer id, String nameX, int officeX, int mobileX) {
         this.id = id;
-        this.pname = pname;
-        this.pnumber1 = pnumber1;
-        this.pnumber2 = pnumber2;
+        this.nameX = nameX;
+        this.officeX = officeX;
+        this.mobileX = mobileX;
     }
 
-    public Contact(String pname, int pnumber1, int pnumber2) {
-        this.pname = pname;
-        this.pnumber1 = pnumber1;
-        this.pnumber2 = pnumber2;
+    public Contact(String nameX, int officeX, int mobileX) {
+        this.nameX = nameX;
+        this.officeX = officeX;
+        this.mobileX = mobileX;
     }
 
     public Contact() {
@@ -27,36 +27,37 @@ public class Contact {
         return id;
     }
 
-    public String getName() {
-        return pname;
+    public String getNamex() {
+        return nameX;
     }
 
-    public int getPnumber1() {
-        return pnumber1;
+    public int getOfficex() {
+        return officeX;
     }
 
-    public int getPnumber2() {
-        return pnumber2;
+    public int getMobilex() {
+        return mobileX;
     }
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setName(String pname) {
-        this.pname = pname;
+    public void setNamex(String nameX) {
+        this.nameX = nameX;
     }
 
-    public void setPnumber1(int pnumber1) {
-        this.pnumber1 = pnumber1;
+    public void setOfficex(int officeX) {
+        this.officeX = officeX;
     }
 
-    public void setPnumber2(int pnumber2) {
-        this.pnumber2 = pnumber2;
+    public void setMobilex(int mobileX) {
+        this.mobileX = mobileX;
     }
 
     @Override
     public String toString() {
-        return "Contact {" + "id=" + id + ", name='" + pname + '\'' + ", Mobile=" + pnumber1 + ", Office =" + pnumber2 + '}';
+        return "Contact {" + "id=" + id + ", name='" + nameX + '\'' + ", Mobile=" + officeX + ", Office =" + mobileX
+                + '}';
     }
 }

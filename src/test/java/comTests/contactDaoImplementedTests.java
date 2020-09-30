@@ -56,32 +56,33 @@ public class contactDaoImplementedTests {
 
         assertThat(testContacts.size()).isEqualTo(5);
         assertThat(testContacts.get(0).getId()).isEqualTo(1);
-        assertThat(testContacts.get(0).getName()).isEqualTo("MARVIN");
-        assertThat(testContacts.get(1).getName()).isEqualTo("NIKOLAS");
-        assertThat(testContacts.get(2).getName()).isEqualTo("LORENA");
-        assertThat(testContacts.get(3).getName()).isEqualTo("LEON");
-        assertThat(testContacts.get(4).getName()).isEqualTo("CATHERINE");
+        assertThat(testContacts.get(0).getNamex()).isEqualTo("MARVIN");
+        assertThat(testContacts.get(1).getNamex()).isEqualTo("NIKOLAS");
+        assertThat(testContacts.get(2).getNamex()).isEqualTo("LORENA");
+        assertThat(testContacts.get(3).getNamex()).isEqualTo("LEON");
+        assertThat(testContacts.get(4).getNamex()).isEqualTo("CATHERINE");
     }
 
     @Test
     public void shouldInsertNewContact2() throws Exception {
-        String pname = "MAVIN LORENA NCHENA";
+        String pname = "MAVIN LORENA NIKOLAS";
         int pnumber1 = 1234567891;
         int pnumber2 = 987654321;
+        int pstars=11;
 
-        contactDao.insertNewContact(pname, pnumber1, pnumber2);
-        verify(contactDao, times(1)).insertNewContact(pname, pnumber1, pnumber2);
+        contactDao.insertNewContact(pname, pnumber1, pnumber2, pstars);
+        verify(contactDao, times(1)).insertNewContact(pname, pnumber1, pnumber2, pstars);
     }
 
     @Test
     public void shouldUpdateContact3() throws Exception {
-          String pname = "Nchena";
+        Integer id = 2;
+        String pname = "NIKOLAS";
         int pnumber1 = 234;
         int pnumber2 = 232;
-
-        Integer id = 2;
-        contactDao.updateOneContact(id, pname, pnumber1, pnumber2);
-        verify(contactDao, times(1)).updateOneContact(id, pname, pnumber1, pnumber2);
+        int pstars = 11;
+        contactDao.updateOneContact(id, pname, pnumber1, pnumber2, pstars);
+        verify(contactDao, times(1)).updateOneContact(id, pname, pnumber1, pnumber2, pstars);
     }
 
     @Test

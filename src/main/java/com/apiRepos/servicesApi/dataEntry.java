@@ -1,4 +1,5 @@
 package com.apiRepos.servicesApi;
+
 import java.util.Scanner;
 import com.apiRepos.contactDaoImplemented;
 import com.apiRepos.contactsDao;
@@ -11,6 +12,7 @@ public class dataEntry {
         final int MAX_LENGTH = 20;
         int pnumber1 = 0;
         int pnumber2 = 0;
+        int pstars = 1;
         String pname = "";
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the name of the new contact : ");
@@ -68,8 +70,8 @@ public class dataEntry {
             }
         }
         contactsDao phoneInserter = new contactDaoImplemented();
-        phoneInserter.insertNewContact(pname.toUpperCase(), pnumber1, pnumber2);
-        System.out.println("\n !======================= DATA ENTRY IS COMPLETE ===========================!\n");
-
+        phoneInserter.insertNewContact(pname.toUpperCase(), pnumber1, pnumber2, pstars);
+        System.out.println(
+                "\n ==================================== DATA ENTRY IS COMPLETE ======================================\n");
     }
 }
