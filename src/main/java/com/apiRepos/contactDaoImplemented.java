@@ -10,6 +10,7 @@ import java.util.List;
 import com.dbase.connFactory;
 import com.dbase.dbConfig;
 import com.model.Contact;
+
 import org.apache.log4j.Logger;
 
 public class contactDaoImplemented implements contactsDao {
@@ -17,7 +18,7 @@ public class contactDaoImplemented implements contactsDao {
     final static Logger logger = Logger.getLogger(contactsDao.class);
 
     private final Connection connection = connFactory.getConnection(dbConfig.url, dbConfig.user1, dbConfig.passwd1);
-    private static final String INSERT_INTO_CONTACTS = "INSERT INTO tblphone (pname, pnumber1,pnumber2) VALUES (?,?,?)";
+    private static final String INSERT_INTO_CONTACTS = "INSERT INTO tblphone (pname, pnumber1,pnumber2,pstar) VALUES (?,?,?,?)";
     private static final String FIND_CONTACT_BY_ID = "SELECT * FROM tblphone WHERE id=? order by id";
     private static final String FIND_CONTACT_BY_NAME = "SELECT * FROM tblphone WHERE pname LIKE '%";
     private static final String FIND_ALL_CONTACTS = "SELECT * FROM tblphone order by id;";
@@ -46,7 +47,7 @@ public class contactDaoImplemented implements contactsDao {
         return findAll();
     }
 
-    @Override
+     @Override
     public Contact findContactByName(String pname) {
         return findByName(pname);
     }
@@ -77,10 +78,6 @@ public class contactDaoImplemented implements contactsDao {
 
         try {
             statement = connection.prepareStatement(INSERT_INTO_CONTACTS);
-            // statement.setString(1, contact.getName());
-            // statement.setInt(2, contact.getPnumber1());
-            // statement.setInt(3, contact.getPnumber2());
-
             statement.setString(1, pname);
             statement.setInt(2, pnumber1);
             statement.setInt(3, pnumber2);
@@ -99,7 +96,8 @@ public class contactDaoImplemented implements contactsDao {
         Contact searchedItem = null;
 
         try {
-            statement = connection.prepareStatement(FIND_CONTACT_BY_ID);
+            statement = connection.prepareStatement(FIND_CONTACT_BY_ID, ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
             statement.setInt(1, id);
             List<Contact> items = getAllContactsFromResultContacts(statement.executeQuery());
             if (items.size() > 0) {
@@ -123,7 +121,8 @@ public class contactDaoImplemented implements contactsDao {
 
         try {
 
-            statement = connection.prepareStatement(FIND_CONTACT_BY_NAME + pname + "%'");
+            statement = connection.prepareStatement(FIND_CONTACT_BY_NAME + pname + "%'",
+                    ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 
             List<Contact> items = getAllContactsFromResultContacts(statement.executeQuery());
             if (items.size() > 0) {
@@ -141,11 +140,12 @@ public class contactDaoImplemented implements contactsDao {
     }
 
     private List<Contact> findAll() {
-        Statement statement;
         List<Contact> result = new ArrayList<>();
+        Statement statement;
 
         try {
-            statement = connection.createStatement();
+            // statement = connection.createStatement();
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             result = getAllContactsFromResultContacts(statement.executeQuery(FIND_ALL_CONTACTS));
             if (result.size() == 0) {
 
@@ -161,39 +161,29 @@ public class contactDaoImplemented implements contactsDao {
         return result1;
     }
 
+     ////////////////////////////////////////////////////
+
     private List<Contact> getAllContactsFromResultContacts(ResultSet resultSet) {
 
         List<Contact> result = new ArrayList<>();
-
         try {
-            while (resultSet.next()) {
-
-                System.out.print("id :  ");
-                System.out.print(resultSet.getInt(1));
-                System.out.print(" Name :  ");
-                System.out.print(resultSet.getString(2));
-                System.out.print(" Mob No.:  ");
-                System.out.print(resultSet.getString(3));
-                System.out.print("  Off No.:  ");
-                System.out.println(resultSet.getString(4));
-                System.out.print(" Stars :  ");
-                System.out.print(resultSet.getString(5));
-                System.out.print("  Dated  :  ");
-                System.out.println(resultSet.getString(6));
-  
-
-            Integer id = resultSet.getInt("id");
-            String name = resultSet.getString("pname");
-            int pnumber1 = resultSet.getInt("pnumber1");
-            int pnumber2 = resultSet.getInt("pnumber2");
-
-            Contact contact = new Contact();
-            contact.setId(id);
-            contact.setName(name);
-            contact.setPnumber1(pnumber1);
-            contact.setPnumber2(pnumber2);
-
-            result.add(contact);}
+            java.sql.ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+            int columnCount = resultSetMetaData.getColumnCount();
+            for (int i = 1; i <= columnCount; i++) {
+                System.out.printf("%-8s\t", resultSetMetaData.getColumnName(i));
+            }
+            System.out.println();
+            if (resultSet.next()) {
+                resultSet.beforeFirst();
+                while (resultSet.next()) {
+                    for (int i = 1; i <= columnCount; i++) {
+                        System.out.printf("%-8s\t", resultSet.getObject(i));
+                    }
+                    System.out.println();
+                }
+            } else {
+                System.out.println("No records at the DB. Empty DB !");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
