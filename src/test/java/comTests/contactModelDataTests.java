@@ -17,7 +17,7 @@ public class contactModelDataTests {
     private Contact sampleContact;
 
     @Before
-    public void setUp(){
+    public void setUpaASampleContact(){
         sampleContact = new Contact();
         sampleContact.setId(ID);
         sampleContact.setNamex(NAME);
@@ -42,6 +42,7 @@ public class contactModelDataTests {
         assertThat(sampleContact.getNamex()).isNotEqualTo("NIKOLAS");
         assertThat(sampleContact.getMobilex()).isNotEqualTo(123456789);
         assertThat(sampleContact.getOfficex()).isNotEqualTo(123456789);
-
     }
+
+  
 }

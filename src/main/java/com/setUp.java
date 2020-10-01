@@ -1,4 +1,5 @@
 package com;
+
 import java.util.Scanner;
 import java.util.logging.Logger;
 
@@ -14,9 +15,10 @@ public class setUp {
     public static void main(String[] args) {
 
         com.model.HelpMenu.helpOrMenu();
-        dataEntry phoneBookInsert = new dataEntry();
-        dataEdit phoneBookUpdate = new dataEdit();
-        dataSearch phoneBookSearch = new dataSearch();
+
+        dataEntry contactInsert = new dataEntry();
+        dataEdit contactUpdate = new dataEdit();
+        dataSearch contactSearch = new dataSearch();
 
         Scanner input = new Scanner(System.in);
         String line = input.nextLine().trim();
@@ -27,29 +29,29 @@ public class setUp {
                     HelpMenu.helpOrMenu();
                     break;
                 case "add":
-                    phoneBookInsert.insertData();
+                    contactInsert.insertData();
                     break; // #1 Create
                 case "list":
-                    phoneBookSearch.findAllData();
+                    contactSearch.findAllData();
                     break; // #2 Read
                 case "name":
-                    phoneBookSearch.findNameData();
+                    contactSearch.findNameData();
                     break; // #2 Read
                 case "number":
-                    phoneBookSearch.findOneData();
+                    contactSearch.findOneData();
                     break; // #2 Read
                 case "update":
-                    phoneBookUpdate.updateData();
+                    contactUpdate.updateData();
                     break; // #3 Update
                 case "delete":
-                    phoneBookSearch.deleteData();
+                    contactSearch.deleteData();
                     break; // #4 delete
                 case "reset":
-                    phoneBookSearch.deleteAllLogs();
-                    phoneBookSearch.deleteAllContacts();
+                    contactSearch.deleteAllLogs();
+                    contactSearch.deleteAllContacts();
                     break; // #4 delete contacts/logs
                 case "logs":
-                    phoneBookSearch.findLogs();
+                    contactSearch.findLogs();
                     break; // #2 Read logs
                 default:
                     logSetUp.info(":   Please select an available command word >>> ");
