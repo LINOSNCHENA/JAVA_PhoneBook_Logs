@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\linos\Downloads\javax1\src\main\java\com\apiRepos\contactDaoImplemented.java
 C:\Users\linos\Downloads\javax1\src\main\java\com\apiRepos\logBookImplemented.java
 C:\Users\linos\Downloads\javax1\src\main\java\com\model\Log.java
@@ -11,3 +12,18 @@ C:\Users\linos\Downloads\javax1\src\main\java\com\setUp.java
 C:\Users\linos\Downloads\javax1\src\main\java\com\dbase\dbConfig.java
 C:\Users\linos\Downloads\javax1\src\main\java\com\model\Contact.java
 C:\Users\linos\Downloads\javax1\src\main\java\com\apiRepos\contactsDao.java
+=======
+c:\Users\linos\Downloads\java1\src\main\java\com\dbase\dbConfig.java
+c:\Users\linos\Downloads\java1\src\main\java\com\dbase\connFactory.java
+c:\Users\linos\Downloads\java1\src\main\java\com\apiRepos\servicesApi\dataEntry.java
+c:\Users\linos\Downloads\java1\src\main\java\com\model\Log.java
+c:\Users\linos\Downloads\java1\src\main\java\com\model\HelpMenu.java
+c:\Users\linos\Downloads\java1\src\main\java\com\apiRepos\logBookImplemented.java
+c:\Users\linos\Downloads\java1\src\main\java\com\apiRepos\servicesApi\dataEdit.java
+c:\Users\linos\Downloads\java1\src\main\java\com\apiRepos\contactDaoImplemented.java
+c:\Users\linos\Downloads\java1\src\main\java\com\setUp.java
+c:\Users\linos\Downloads\java1\src\main\java\com\model\Contact.java
+c:\Users\linos\Downloads\java1\src\main\java\com\apiRepos\contactsDao.java
+c:\Users\linos\Downloads\java1\src\main\java\com\apiRepos\logBook.java
+c:\Users\linos\Downloads\java1\src\main\java\com\apiRepos\servicesApi\dataSearch.java
+>>>>>>> 91c3f689f9b3dc40f662f0fa2056cb6bd42c7646
