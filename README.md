@@ -22,8 +22,8 @@ echo %CLASSPATH%
 
 
 Update USERNAME/PASSWORD for the database table\
-Database schema  : PRESLY
-Database table1  : CONTACTSLIST
+Database schema  : PRESLY\
+Database table1  : CONTACTSLIST\
 Database table2  : CONTACTSLOGS
 
 Contacts database setting is found in folder main/java/dbase/dbConfig.java\

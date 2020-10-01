@@ -4,10 +4,10 @@ public class HelpMenu {
 
   public static void helpOrMenu() {
 
-    String adviceMenu = "-------------------------------------------------------------\n"
-        + "       WELCOME TO PHONEBOOK APPLICATION  v3             \n"
-        + " Select one action below and then type its command below\n"
-        + "=============================================================\n" +
+    String adviceMenu = "=====================================================================================================\n"
+        + "                       WELCOME TO CONTACTS BOOK APPLICATION  v3             \n"
+        + "           Select one action below and then type its command below\n"
+        + "=====================================================================================================\n\n" +
 
         "HELP   - to lists all available valid commands on this application \n\n"
 
@@ -23,7 +23,7 @@ public class HelpMenu {
         + "LOGS   - To view details of all log data manipulations recordss\n"
         + "EXIT   - End the usage of this contacts book application console\n" +
 
-        "--------------------------------------------------------------\n\n"
+        "=====================================================================================================\n\n"
         + " To continue, please enter an action command here >>>  ";
 
     System.out.print(adviceMenu);

@@ -1,8 +1,8 @@
 com\model\HelpMenu.class
+com\apiRepos\logAdminiImplemented.class
 com\apiRepos\servicesApi\dataEntry.class
 com\apiRepos\contactsDao.class
 com\apiRepos\logBook.class
-com\apiRepos\logBookImplemented.class
 com\setUp.class
 com\apiRepos\servicesApi\dataEdit.class
 com\apiRepos\servicesApi\dataSearch.class
