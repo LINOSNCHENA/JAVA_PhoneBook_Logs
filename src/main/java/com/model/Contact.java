@@ -2,62 +2,62 @@ package com.model;
 
 public class Contact {
 
-    private Integer id;
-    private String nameX;
-    private int mobileX;
-    private int officeX;
+    private Integer Id;
+    private String NAME;
+    private long MOBILE;
+    private long OFFICE;
 
-    public Contact(Integer id, String nameX, int officeX, int mobileX) {
-        this.id = id;
-        this.nameX = nameX;
-        this.officeX = officeX;
-        this.mobileX = mobileX;
+    public Contact(Integer Id, String NAME, long MOBILE,long OFFICE ) {
+        this.Id = Id;
+        this.NAME = NAME;
+        this.OFFICE = OFFICE;
+        this.MOBILE = MOBILE;
     }
 
-    public Contact(String nameX, int officeX, int mobileX) {
-        this.nameX = nameX;
-        this.officeX = officeX;
-        this.mobileX = mobileX;
+    public Contact(String NAME, int MOBILE,int OFFICE ) {
+        this.NAME = NAME;
+        this.OFFICE = OFFICE;
+        this.MOBILE = MOBILE;
     }
 
     public Contact() {
     }
 
     public Integer getId() {
-        return id;
+        return Id;
     }
 
-    public String getNamex() {
-        return nameX;
+    public String getName() {
+        return NAME;
     }
 
-    public int getOfficex() {
-        return officeX;
+    public long getOffice() {
+        return OFFICE;
     }
 
-    public int getMobilex() {
-        return mobileX;
+    public long getMobile() {
+        return MOBILE;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(Integer Id) {
+        this.Id = Id;
     }
 
-    public void setNamex(String nameX) {
-        this.nameX = nameX;
+    public void setName(String NAME) {
+        this.NAME = NAME;
     }
 
-    public void setOfficex(int officeX) {
-        this.officeX = officeX;
+    public void setOffice(long OFFICE) {
+        this.OFFICE = OFFICE;
     }
 
-    public void setMobilex(int mobileX) {
-        this.mobileX = mobileX;
+    public void setMobile(long MOBILE) {
+        this.MOBILE = MOBILE;
     }
 
     @Override
     public String toString() {
-        return "Contact {" + "id=" + id + ", name='" + nameX + '\'' + ", Mobile=" + officeX + ", Office =" + mobileX
+        return "Contact {" + "Id : " + Id + ", Name :'" + NAME + '\'' + ", Mobile : " + OFFICE + ", Office : " + MOBILE
                 + '}';
     }
 }

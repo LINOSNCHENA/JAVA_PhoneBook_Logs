@@ -1,6 +1,8 @@
 package comTests;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -41,6 +43,7 @@ public class contactDaoImplementedTests {
         Contact friend3 = new Contact(3, "LORENA", 20201984, 20202014);
         Contact friend4 = new Contact(4, "LEON", 20201984, 20202012);
         Contact friend5 = new Contact(5, "CATHERINE", 20201984, 20202014);
+
         myContacts.add(friend1);
         myContacts.add(friend2);
         myContacts.add(friend3);
@@ -58,11 +61,11 @@ public class contactDaoImplementedTests {
 
         assertThat(herContacts.size()).isEqualTo(5);
         assertThat(herContacts.get(0).getId()).isEqualTo(1);
-        assertThat(herContacts.get(0).getNamex()).isEqualTo("MARVIN");
-        assertThat(herContacts.get(1).getNamex()).isEqualTo("NIKOLAS");
-        assertThat(herContacts.get(2).getNamex()).isEqualTo("LORENA");
-        assertThat(herContacts.get(3).getNamex()).isEqualTo("LEON");
-        assertThat(herContacts.get(4).getNamex()).isEqualTo("CATHERINE");
+        assertThat(herContacts.get(0).getName()).isEqualTo("MARVIN");
+        assertThat(herContacts.get(1).getName()).isEqualTo("NIKOLAS");
+        assertThat(herContacts.get(2).getName()).isEqualTo("LORENA");
+        assertThat(herContacts.get(3).getName()).isEqualTo("LEON");
+        assertThat(herContacts.get(4).getName()).isEqualTo("CATHERINE");
     }
 
     @Test
@@ -74,6 +77,7 @@ public class contactDaoImplementedTests {
 
         contactDao.insertNewContact(pname, pnumber1, pnumber2, pstars);
         verify(contactDao, times(1)).insertNewContact(pname, pnumber1, pnumber2, pstars);
+
     }
 
     @Test
@@ -134,9 +138,39 @@ public class contactDaoImplementedTests {
     }
 
     @Test
-    public void shouldDeleteAllContacts8F() throws Exception {
+    public void shouldDeleteAllContactsF8() throws Exception {
         contactDao.deleteAllContacts();
+
         verify(contactDao, times(1)).deleteAllContacts();
     }
 
+    @Test
+    public void shouldCountOfImaginableAbstractContactsF8() throws Exception {
+        int minCounter = 24;
+        when(contactDao.countAllContacts()).thenReturn(minCounter);
+
+        contactDao.countAllContacts();
+        assertEquals(24, contactDao.countAllContacts());
+        assertEquals(24, contactDao.countAllContacts());
+        assertEquals(24, contactDao.countAllContacts());
+        assertNotEquals(5, contactDao.countAllContacts());
+        assertNotEquals(5, contactDao.countAllContacts());
+        assertNotEquals(5, contactDao.countAllContacts());
+    }
+
+    @Test
+    public void shouldReturnNumberOfSampleFiveContactsF10() throws Exception {
+
+        List<Contact> myContacts = getCurrentContacts();
+        int maxCounter = 5;
+
+        when(contactDao.countAllContacts()).thenReturn(maxCounter);
+
+        assertEquals(myContacts.size(), maxCounter);
+        assertThat(myContacts.size()).isEqualTo(5);
+        assertEquals(5, contactDao.countAllContacts());
+        assertEquals(5, myContacts.size());
+        assertEquals(contactDao.countAllContacts(), (myContacts).size());
+
+    }
 }

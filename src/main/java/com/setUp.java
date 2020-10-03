@@ -38,7 +38,7 @@ public class setUp {
                     contactSearch.findNameData();
                     break; // #2 Read
                 case "number":
-                    contactSearch.findOneData();
+                    contactSearch.findIdRecord();
                     break; // #2 Read
                 case "update":
                     contactUpdate.updateData();
@@ -47,11 +47,14 @@ public class setUp {
                     contactSearch.deleteData();
                     break; // #4 delete
                 case "reset":
-                    contactSearch.deleteAllLogs();
-                    contactSearch.deleteAllContacts();
+                    contactSearch.deleteAllContactsAndLogs();
                     break; // #4 delete contacts/logs
                 case "logs":
                     contactSearch.findLogs();
+                    break; // #2 Read logs
+                case "count":
+                    contactSearch.countAllContacts();
+                    contactSearch.countAllClosing();
                     break; // #2 Read logs
                 default:
                     logSetUp.info(":   Please select an available command word >>> ");

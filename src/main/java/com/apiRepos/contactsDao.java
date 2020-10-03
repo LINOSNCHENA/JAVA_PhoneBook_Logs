@@ -6,16 +6,17 @@ import com.model.Contact;
 
 public interface contactsDao {
 
-    void insertNewContact(String nameX, int mobileX, int officeX, int starX);
+    void insertNewContact(String name, int mobile, int office, int stars);
 
     List<Contact> findAllContacts();
 
     Contact findContactById(Integer id);
 
-    Contact findContactByName(String nameX);
+    Contact findContactByName(String name);
 
-    void updateOneContact(Integer id, String nameX, int mobileX, int officeX,int starX);
+    void updateOneContact(Integer id, String name, int mobile, int office,int stars);
 
+    int countAllContacts();
     void deleteOneContact(Integer id);
 
     void deleteAllContacts();

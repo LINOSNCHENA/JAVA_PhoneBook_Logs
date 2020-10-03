@@ -18,21 +18,22 @@ public class contactDaoImplemented implements contactsDao {
     final static Logger logger = Logger.getLogger(contactsDao.class);
 
     private final Connection connection = connFactory.getConnection(dbConfig.url, dbConfig.user, dbConfig.passwd);
-    private static final String INSERT_INTO_CONTACTS = "INSERT INTO CONTACTSLIST (nameX, mobileX,officeX,starX) VALUES (?,?,?,?)";
-    private static final String FIND_CONTACT_BY_ID = "SELECT * FROM CONTACTSLIST WHERE id=? order by id";
-    private static final String FIND_CONTACT_BY_NAME = "SELECT * FROM CONTACTSLIST WHERE nameX LIKE '%";
-    private static final String FIND_ALL_CONTACTS = "SELECT * FROM CONTACTSLIST order by id";
-    private static final String UPDATE_ONE_CONTACT = "UPDATE CONTACTSLIST SET nameX=?, mobileX=?,officeX=?,starX=? WHERE id=?";
+    private static final String INSERT_INTO_CONTACTS = "INSERT INTO CONTACTSLIST (NAME, MOBILE,OFFICE,STARS) VALUES (?,?,?,?)";
+    private static final String FIND_CONTACT_BY_ID = "SELECT * FROM CONTACTSLIST WHERE ID=? order by ID";
+    private static final String FIND_CONTACT_BY_NAME = "SELECT * FROM CONTACTSLIST WHERE NAME LIKE '%";
+    private static final String FIND_ALL_CONTACTS = "SELECT * FROM CONTACTSLIST order by ID";
+    private static final String UPDATE_ONE_CONTACT = "UPDATE CONTACTSLIST SET NAME=?, MOBILE=?,OFFICE=?,STARS=? WHERE ID=?";
     private static final String DELETE_ONE_CONTACT = "DELETE FROM CONTACTSLIST WHERE id = ?";
+    private static final String COUNT_CONTACTS = "SELECT COUNT(*) FROM CONTACTSLIST";
 
     private static final String DROP_TABLE = "DROP TABLE IF EXISTS CONTACTSLIST";
-    private static final String CREATE_TABLE = "CREATE TABLE CONTACTSLIST (id SERIAL PRIMARY KEY,nameX TEXT NOT NULL, mobileX BIGINT NOT NULL,officeX BIGINT,starX int DEFAULT 45,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
-    private static final String INSERT1_TABLE = "INSERT INTO CONTACTSLIST (nameX,mobileX,officeX,starX) VALUES('POLICE-E', 1992020,2234678,4),('HOSPITAL-E',2882020,12356,2)";
-    private static final String INSERT2_TABLE = "INSERT INTO CONTACTSLIST (nameX,mobileX,officeX,starX) VALUES('FIRE-E', 37720280,123489,4),('AMBULANCE-P',46662020,112342,3)";
+    private static final String CREATE_TABLE = "CREATE TABLE CONTACTSLIST (ID SERIAL PRIMARY KEY,NAME TEXT NOT NULL, MOBILE BIGINT NOT NULL,OFFICE BIGINT,STARS INT DEFAULT 45,CREATED_AT TIMESTAMP DEFAULT CURRENT_TIMESTAMP)";
+    private static final String INSERT1_TABLE = "INSERT INTO CONTACTSLIST (NAME,MOBILE,OFFICE,STARS) VALUES('POLICE', 9812345,6654321,4),('HOSPDEPT',8912020,9912356,2)";
+    private static final String INSERT2_TABLE = "INSERT INTO CONTACTSLIST (NAME,MOBILE,OFFICE,STARS) VALUES('FIRES', 8912345,7754321,4),('AMBULANCE',8820201,8812342,3)";
 
     @Override
-    public void insertNewContact(String nameX, int mobileX, int officeX, int starX) {
-        insertContact(nameX, mobileX, officeX, starX);
+    public void insertNewContact(String name, int mobile, int office, int stars) {
+        insertContact(name, mobile, office, stars);
     }
 
     @Override
@@ -41,19 +42,24 @@ public class contactDaoImplemented implements contactsDao {
     }
 
     @Override
-    public Contact findContactByName(String nameX) {
-        return findByName(nameX);
+    public Contact findContactByName(String name) {
+        return findByName(name);
     }
 
     @Override
     public Contact findContactById(Integer id) {
         return findById(id);
     }
+    @Override
+    public int countAllContacts() {
+        return countContacts();
+    }
 
     @Override
-    public void updateOneContact(Integer id, String nameX, int mobileX, int officeX, int starX) {
-        updateContact(id, nameX, mobileX, officeX, starX);
+    public void updateOneContact(Integer id, String name, int mobile, int office, int stars) {
+        updateContact(id, name, mobile, office, stars);
     }
+ 
 
     @Override
     public void deleteOneContact(Integer id) {
@@ -65,16 +71,16 @@ public class contactDaoImplemented implements contactsDao {
         deleteContacts();
     }
 
-    public void insertContact(String nameX, int mobileX, int officeX, int starX) {
+    public void insertContact(String name, int mobile, int office, int stars) {
 
         PreparedStatement statementInsert;
 
         try {
             statementInsert = connection.prepareStatement(INSERT_INTO_CONTACTS);
-            statementInsert.setString(1, nameX);
-            statementInsert.setInt(2, mobileX);
-            statementInsert.setInt(3, officeX);
-            statementInsert.setInt(4, starX);
+            statementInsert.setString(1, name);
+            statementInsert.setInt(2, mobile);
+            statementInsert.setInt(3, office);
+            statementInsert.setInt(4, stars);
 
             statementInsert.executeUpdate();
             statementInsert.close();
@@ -139,13 +145,13 @@ public class contactDaoImplemented implements contactsDao {
         return searchedId;
     }
 
-    private Contact findByName(String nameX) {
+    private Contact findByName(String name) {
         PreparedStatement statementName;
         Contact searchedName = null;
 
         try {
 
-            statementName = connection.prepareStatement(FIND_CONTACT_BY_NAME + nameX + "%'",
+            statementName = connection.prepareStatement(FIND_CONTACT_BY_NAME + name + "%'",
                     ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
             List<Contact> items = printSearchResult(statementName.executeQuery());
 
@@ -180,17 +186,32 @@ public class contactDaoImplemented implements contactsDao {
             e.printStackTrace();
             logger.error("Sorry, - something went wrong!", e);
         }
-         return contactsloaded;
+        return contactsloaded;
     }
 
-    private void updateContact(Integer id, String nameX, int mobileX, int officeX, int starX) {
+    private int countContacts() {
+        PreparedStatement statementCounter;
+        int contactCounter = 0;
+        try {
+            statementCounter = connection.prepareStatement(COUNT_CONTACTS);
+            ResultSet counterResults = statementCounter.executeQuery();
+            counterResults.next();
+            contactCounter = counterResults.getInt(1);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("         Total Number of records is :  " + contactCounter);
+        return contactCounter;
+    }
+
+    private void updateContact(Integer id, String name, int mobile, int office, int stars) {
         PreparedStatement statementUpdate;
         try {
             statementUpdate = connection.prepareStatement(UPDATE_ONE_CONTACT);
-            statementUpdate.setString(1, nameX);
-            statementUpdate.setInt(2, mobileX);
-            statementUpdate.setInt(3, officeX);
-            statementUpdate.setInt(4, starX);
+            statementUpdate.setString(1, name);
+            statementUpdate.setInt(2, mobile);
+            statementUpdate.setInt(3, office);
+            statementUpdate.setInt(4, stars);
             statementUpdate.setInt(5, id);
             statementUpdate.executeUpdate();
             statementUpdate.close();

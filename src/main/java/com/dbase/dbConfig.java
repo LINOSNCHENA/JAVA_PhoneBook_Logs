@@ -4,13 +4,13 @@ public class dbConfig {
 
   // MySQL
 
-  public static final String urlx = "jdbc:mysql://localhost/presly";
-  public static final String userx = "root";
+  public static final String url = "jdbc:mysql://localhost/presly";
+  public static final String user = "root";
 
   // postgresql
 
-  public static final String url = "jdbc:postgresql://localhost:5432/presly";
-  public static final String user = "postgres";
+  public static final String urlv = "jdbc:postgresql://localhost:5433/presly";
+  public static final String userv = "postgres";
 
   // Common password
 
